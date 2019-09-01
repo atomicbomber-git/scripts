@@ -1,4 +1,3 @@
-let body = document.querySelectorAll("body")
 let list = document.querySelector("ol.episode-list.is-condensed")
 let nodes = list.querySelectorAll(".episode-list-title a")
 let node_array = []
@@ -10,10 +9,10 @@ for (var i = 0; i < nodes.length; ++i) {
 
 node_array = node_array.map(async (node) => {
     let response = await fetch(node.href)
-    let container = document.createElement("div")
-    container.innerHTML = await response.clone().text()
-    let downloadButton = container.querySelector("video-card")
-    return base_url + downloadButton.getAttribute("download-link")
+    let response_text = await response.clone().text()
+    let match = (/download-link="(.*?)"/g).exec(response_text)
+    let path = match[1]
+    return base_url + path
 })
 
 let links = await Promise.all(node_array)
