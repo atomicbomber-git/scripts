@@ -1,5 +1,6 @@
 let body = document.querySelectorAll("body")
-let nodes = document.querySelectorAll("ol.episode-list.is-condensed .episode-list-title a")
+let list = document.querySelector("ol.episode-list.is-condensed")
+let nodes = list.querySelectorAll(".episode-list-title a")
 let node_array = []
 let base_url = "https://laracasts.com"
 
