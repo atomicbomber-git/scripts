@@ -14,7 +14,7 @@ if (argv.length < 3) {
     console.error(`At least 1 argument is needed.`)
     process.exit(1)
 }
-//
+
 const sourceEnvName = argv[2].toLowerCase()
 
 if (!ALLOWED_ENV_NAMES.includes(sourceEnvName)) {
